@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Moving Image</title>
+            <style>
+                #image {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            </style>
+        </head>
+        <body>
+            <img id="image" src="Frontend.jpg" alt="Moving Image">
+            <h1 id="textForImage">
+                Click On Enter Button And Then Click On Up,Down,Left And Right Button To Move The Image
+                </h1>
+            <script>
+                const image = document.getElementById('image');
+                let x = 150;
+                let y = 300;
+                const speed = 5;
+        
+                document.addEventListener('keydown', (event) => {
+                    switch (event.keyCode) {
+                        case 37: // Left arrow
+                            x -= speed;
+                            break;
+                        case 38: // Up arrow
+                            y -= speed;
+                            break;
+                        case 39: // Right arrow
+                            x += speed;
+                            break;
+                        case 40: // Down arrow
+                            y += speed;
+                            break;
+                    }
+                    image.style.top = `${y}px`;
+                    image.style.left = `${x}px`;
+                });
+            </script>
+        </body>
+        </html>
+        </script>
+    </body>
+    </html>

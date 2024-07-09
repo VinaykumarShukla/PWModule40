@@ -1,0 +1,58 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Heading</title>
+
+    <style>
+        #heading {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 500;
+        }
+
+        #toggle-btn {
+          margin-left: 45%;
+          display: inline;
+          width: 200px;
+          height: 50px;
+          line-height: 50px;
+          background: linear-gradient(to left, #e91e63, #f44336);
+          box-shadow: 0 10px 25px #e91e6360;
+          border-radius: 50px;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+    </style>
+
+</head>
+<body>
+  <h1 id="heading">The most affordable learning platform</h1>
+  <button id="toggle-btn">Toggle</button>
+
+  <script>
+    const heading = document.getElementById('heading');
+    const toggleBtn = document.getElementById('toggle-btn');
+
+    let currentState = 'initial';
+
+    toggleBtn.addEventListener('click', () => {
+      if (currentState === 'initial') {
+        heading.textContent = 'PW Skills';
+        currentState = 'changed';
+      } else {
+        heading.textContent = 'The most affordable learning platform';
+        currentState = 'initial';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamically Adding List Items</title>
+    <style>
+        h2{
+            font-size: 30px;
+            font-weight: 500;
+        }
+        
+        #add-item{
+        width: 15%;
+        display: inline;
+        height: 50px;
+        line-height: 50px;
+        background: linear-gradient(to left, #e91e63, #f44336);
+        box-shadow: 0 10px 25px #e91e6360;
+        border-radius: 50px;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        }
+
+        #list{
+            font-size: 25px;
+        }
+
+        #message {
+            font-size: 30px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>What you'll learn</h2>
+    <button id="add-item">Add Item</button>
+    <ol id="list">
+        <!-- list items will be added dynamically here -->
+    </ol>
+    <p id="message"></p>
+
+    <script>
+        const listItemArray = [
+            "Learn HTML and CSS",
+            "Understand JavaScript fundamentals",
+            "Master DOM manipulation",
+            "Build dynamic web applications",
+            "Explore advanced JavaScript concepts"
+        ];
+
+        const listElement = document.getElementById('list');
+        const addItemButton = document.getElementById('add-item');
+        const messageElement = document.getElementById('message');
+
+        let currentIndex = 0;
+
+        addItemButton.addEventListener('click', () => {
+            if (currentIndex < listItemArray.length) {
+                const listItem = document.createElement('li');
+                listItem.textContent = listItemArray[currentIndex];
+                listElement.appendChild(listItem);
+                currentIndex++;
+            } else {
+                messageElement.textContent = 'All items have been added!';
+            }
+        });
+    </script>
+</body>
+</html>

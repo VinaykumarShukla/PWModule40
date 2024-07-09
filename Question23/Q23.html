@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Background Color</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #change-color{
+            width: 100%;
+        display: inline;
+        height: 50px;
+        line-height: 50px;
+        background: linear-gradient(to left, #e91e63, #f44336);
+        box-shadow: 0 10px 25px #e91e6360;
+        border-radius: 50px;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <button id="change-color">Change Color</button>
+
+    <script>
+        const colors = [
+            '#FF69B4', '#33CC33', '#6666FF', '#FFCC00', '#0099CC',
+            '#FF99CC', '#66CCCC', '#CC6699', '#3399FF', '#CCCCFF'
+        ];
+        const changeColorButton = document.getElementById('change-color');
+
+        changeColorButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const randomColor = colors[randomIndex];
+            document.body.style.background = randomColor;
+        });
+    </script>
+</body>
+</html>

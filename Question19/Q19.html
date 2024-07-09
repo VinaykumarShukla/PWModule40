@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Login Form</title>
+        <style>
+
+        #login-form{
+         background: #fff;
+         box-shadow: 0 5px 21px #d4d4d4;
+         padding: 40px;
+         border-radius: 8px;
+         height: 50vh;
+         width: 300px;
+        }  
+  
+        label {
+        position: relative;
+        display: block;
+        margin-bottom: 25px;
+        font-size: 18px;
+        font-weight: 600;
+       }
+
+        input {
+        width: 100%;
+        height: 50px;
+        padding: 0 5px;
+        font-size: 18px;
+        border-radius: 50px;
+        border: 0;
+        background-color: #e8eaf6;
+       }
+
+        #btn19{
+        width: 100%;
+        display: inline;
+        height: 50px;
+        line-height: 50px;
+        background: linear-gradient(to left, #e91e63, #f44336);
+        box-shadow: 0 10px 25px #e91e6360;
+        border-radius: 50px;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+       }
+
+        #validation-message{
+        margin-top: 30px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 25px;
+       }
+       </style></head>
+       <body>
+
+        <form id="login-form">
+            <label id="labelLogin1" for="email">Email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label id="labelLogin2" for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <button id="btn19" type="submit">Login</button>
+            <p id="validation-message"></p>
+          </form>
+
+    <script>
+         const form1 = document.getElementById("login-form");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const validationMessage = document.getElementById("validation-message");
+
+    form1.addEventListener("submit", (e) => {
+      e.preventDefault(); // prevent form submission
+
+      const emailValue = emailInput.value;
+      const passwordValue = passwordInput.value;
+
+      if (!emailValue.includes("@") || passwordValue.length < 8) {
+        validationMessage.textContent = "Invalid email or password!";
+        validationMessage.className = "error";
+      } else {
+        validationMessage.textContent = "Valid email and password!";
+        validationMessage.className = "success";
+      }
+    });
+    </script>
+</body>
+</html>
